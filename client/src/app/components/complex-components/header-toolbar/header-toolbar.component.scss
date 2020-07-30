@@ -1,0 +1,41 @@
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.link {
+  display: inline-block;
+  color: #ffffff;
+  line-height: 60px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home {
+
+}
+
+.logout{
+  padding: 0 20px;
+}
+
+.logout-link:hover {
+  background-color: #1569bf;
+}

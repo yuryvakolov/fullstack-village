@@ -1,0 +1,34 @@
+.expense-group {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.minus {
+  position: absolute;
+  top: 10px;
+  left: -18px;
+}
+
+.plus {
+  position: absolute;
+  top: 5px;
+  left: -18px;
+}
+
+.expense-group-name {
+  display: inline-block;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.group-amount {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 28px;
+}
+
+hr {
+  margin: 0;
+}

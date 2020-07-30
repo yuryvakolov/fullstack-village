@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-page-title
+        textBeforeFirstDynamic="Финасовое состояние"
+        [firstDynamic]="companyName"
+        textAfterFirstDynamic="на"
+        [secondDynamic]="currentDate | date:'dd MMMM yyyy'"
+        textAfterSecondDynamic="г."
+      ></app-page-title>
+    </div>
+    <div class="col-auto">
+      <app-top-icons-block></app-top-icons-block>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <app-data-cell
+        labelBeforeDynamic="Потенциальный финансовый фонд, с учетом недоимок прошлых периодов"
+        [data]="finance.potentialFinancialFund | number:'1.2'"
+        routerLink="#"
+        class="count-field"
+      ></app-data-cell>
+    </div>
+    <div class="col">
+      <app-data-cell
+        labelBeforeDynamic="Средств на рассчетном счете"
+        [data]="finance.actualFunds | number:'1.2'"
+        routerLink="#"
+        class="count-field big"
+      ></app-data-cell>
+    </div>
+    <div class="col">
+      <app-data-cell
+        labelBeforeDynamic="Утвержденный бюджет на"
+        [firstDynamicLabeltext]="currentDate | date:'yyyy'"
+        labelAfterDynamic="год"
+        [data]="finance.approvedBudget | number:'1.2'"
+        routerLink="/approved-budget"
+        class="count-field"
+      ></app-data-cell>
+      <app-data-cell
+        labelBeforeDynamic="Фактические поступления"
+        [data]="finance.actualReceipts | number:'1.2'"
+        routerLink="/actual-income"
+        class="count-field"
+      ></app-data-cell>
+    </div>
+    <div class="col">
+      <app-data-cell
+        labelBeforeDynamic="Фактические затраты"
+        [data]="finance.actualCosts | number:'1.2'"
+        routerLink="/actual-costs"
+        class="count-field"
+      ></app-data-cell>
+      <app-data-cell
+        labelBeforeDynamic="Ожидаемые поступления"
+        [data]="finance.expectedReceipts | number:'1.2'"
+        routerLink="/expected-arrivals"
+        class="count-field"
+      ></app-data-cell>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-data-cell
+        labelBeforeDynamic="Баланс"
+        [data]="finance.financialBalance | number:'1.2'"
+        routerLink="#"
+        class="count-field"
+        [ngClass]="{
+          danger: finance.financialBalance < 0,
+          success: finance.financialBalance > 0
+         }"
+      ></app-data-cell>
+    </div>
+    <div class="col-8">
+      <app-data-cell
+        labelBeforeDynamic="Недоимка прошлых периодов"
+        [data]="finance.pastPeriodsArrears | number:'1.2'"
+        routerLink="/backward-arrears"
+        class="count-field"
+      ></app-data-cell>
+    </div>
+  </div>
+  <!--  Expense group-->
+  <div class="row border-bottom m-1 mb-3">
+    <div class="col-6 start pl-0">
+      <span class="sections-name">ГРУППА РАСХОДОВ</span>
+    </div>
+    <div class="col end">
+      <span class="sections-name">ПЛАН</span>
+    </div>
+    <div class="col end">
+      <span class="sections-name">ФАКТ</span>
+    </div>
+    <div class="col end pr-0">
+      <span class="sections-name">ОТКЛОНЕНИЕ</span>
+    </div>
+  </div>
+  <!--  Группа расходов-->
+  <app-row-four-cells
+    *ngFor="let item of finance.projects"
+    [group]="item"
+  ></app-row-four-cells>
+  <div class="row">
+    <div class="col-6"></div>
+    <div class="col end">
+      <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+    </div>
+    <div class="col end">
+      <span class="summary-all-groups">{{finance.actualCosts | number:'1.2'}}</span>
+    </div>
+    <div class="col end">
+      <span
+        class="summary-all-groups"
+        [ngClass]="{
+          danger: (finance.approvedBudget - finance.actualCosts) < 0,
+          success: (finance.approvedBudget - finance.actualCosts) > 0
+         }"
+      >{{finance.approvedBudget - finance.actualCosts  | number:'1.2'}}</span>
+    </div>
+  </div>
+
+</div>

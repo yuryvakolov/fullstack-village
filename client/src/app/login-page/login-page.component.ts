@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../shared/services/auth.service";
+import {AuthService} from "../_services/auth.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {MaterialService} from "../shared/services/material.service";
+import {ToastService} from "../_services/toast.service";
 
 @Component({
   selector: 'app-login-page',
@@ -17,7 +17,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {
   }
 
@@ -29,11 +30,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     this.route.queryParams.subscribe((params) => {
       if (params['registered']) {
-        MaterialService.toast('Теперь вы можете зайти в систему, используя свои данные')
+        this.toastService.show('Теперь вы можете зайти в систему, используя свои данные')
       } else if (params['accessDenied']) {
-        MaterialService.toast('Для начала авторизуйтесь в системе')
+        this.toastService.show('Для начала авторизуйтесь в системе')
       } else if (params['sessionFailed']) {
-        MaterialService.toast('Пожалуйста войдите в систему снова')
+        this.toastService.show('Пожалуйста войдите в систему снова')
       }
     })
   }
@@ -53,7 +54,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.aSub = this.authService.login(user).subscribe(
       () => this.router.navigate(['overview']), //todo: Создать страницу и роут 'overview'
       error => {
-        MaterialService.toast(error.error.message)
+        this.toastService.show(error.error.message)
         this.form.enable()
       }
     )

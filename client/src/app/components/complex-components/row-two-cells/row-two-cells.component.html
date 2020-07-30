@@ -1,0 +1,34 @@
+<div class="row" *ngIf="openExpenseGroup">
+  <div class="expense-group col-12" (click)="openExpenseGroup = !openExpenseGroup">
+    <img *ngIf="openExpenseGroup" src="/assets/icons/minus.svg" class="minus">
+    <span class="expense-group-name" *ngIf="openExpenseGroup">{{group.name}}</span>
+  </div>
+  <ng-container *ngFor="let row of group.expenses">
+    <div class="col-10">
+      <app-data-cell
+        [data]="row.name"
+        class="expense-item"
+      ></app-data-cell>
+    </div>
+    <div class="col">
+      <app-data-cell
+        [data]="row.plan  | number:'1.2'"
+        class="amount-item"
+        [showIcon]="false"
+      ></app-data-cell>
+    </div>
+  </ng-container>
+
+</div>
+
+<!--  СВЕРНУТАЯ СТРОКА-->
+<div class="row">
+  <div class="expense-group col-6" (click)="openExpenseGroup = !openExpenseGroup">
+    <img src="/assets/icons/plus.svg" class="plus" *ngIf="!openExpenseGroup">
+    <span class="expense-group-name" *ngIf="!openExpenseGroup">{{group.name}}</span>
+  </div>
+  <div class="group-amount col">
+    <span class="expense-group-name">{{group.summaryPlan  | number:'1.2'}}</span>
+  </div>
+</div>
+<hr>

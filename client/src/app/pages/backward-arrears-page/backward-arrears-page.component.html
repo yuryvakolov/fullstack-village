@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-auto icon-container" >
+      <app-routable-icon
+        routerLink="/overview"
+        src="/assets/icons/back.svg"
+        alt="Назад"
+        class="top-icons"
+      ></app-routable-icon>
+    </div>
+    <div class="col">
+      <app-page-title
+        textBeforeFirstDynamic="Недоимка прошлых периодов для "
+        [firstDynamic]="companyName"
+        textAfterFirstDynamic="на"
+        [secondDynamic]="currentDate | date:'dd MMMM yyyy'"
+        textAfterSecondDynamic="год"
+      ></app-page-title>
+    </div>
+    <div class="col-auto icon-container">
+      <app-top-icons-block></app-top-icons-block>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.view-link {
+  cursor: pointer
+}
+.active-view-link {
+  font-weight: 700;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+}
+
+.detalisation-title__quarter {
+  font-size: 3rem;
+  margin: 0 10px;
+  padding-bottom: 10px;
+}
+
+.grey {
+  color: #cccccc;
+}
+
+.detalisation-title__month {
+  font-size: 2rem;
+}

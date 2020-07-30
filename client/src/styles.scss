@@ -1,2 +1,79 @@
-@import "~materialize-css/dist/css/materialize.min.css";
-@import "theme/styles.min.css";
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+$danger: #d11f1f;
+$success: #16b54b;
+
+html, body, section {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.wrapper-end {
+  padding-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.danger {
+  color: $danger !important;
+}
+
+.success {
+  color: $success !important;
+}
+
+.sections-name {
+  display: inline-block;
+  font-weight: 600;
+  padding-bottom: 5px;
+  font-size: 1.6rem;
+}
+
+.summary-all-groups {
+  display: inline-block;
+  font-weight: 600;
+  padding: 10px 0 5px 12px;
+  font-size: 1.8rem;
+}
+
+.summary-all-groups__finally {
+  display: inline-block;
+  font-weight: 900;
+  padding: 10px 0 5px 12px;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}

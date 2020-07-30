@@ -1,0 +1,288 @@
+<div class="container">
+  <div class="row">
+    <div class="col-auto icon-container">
+      <app-routable-icon
+        routerLink="/overview"
+        src="/assets/icons/back.svg"
+        alt="Назад"
+        class="top-icons"
+      ></app-routable-icon>
+    </div>
+    <div class="col">
+      <app-page-title
+        textBeforeFirstDynamic="Утвержденный бюджет"
+        [firstDynamic]="companyName"
+        textAfterFirstDynamic="на"
+        [secondDynamic]="currentDate | date:'dd MMMM yyyy'"
+        textAfterSecondDynamic="год"
+      ></app-page-title>
+    </div>
+    <div class="col-auto icon-container">
+      <app-top-icons-block></app-top-icons-block>
+    </div>
+  </div>
+
+  <!--  Detalinsation of view-->
+  <div class="row mt-3 mb-5">
+    <div class="col-auto">
+      <small
+        class="view-link"
+        [ngClass]="{'active-view-link': activeView === 'year'}"
+        (click)="onChangeDetalisationView('year')"
+      >Общий бюджет на год</small>
+    </div>
+    <div class="col-auto">
+      <small
+        class="view-link"
+        [ngClass]="{'active-view-link': activeView === 'quarter'}"
+        (click)="onChangeDetalisationView('quarter')"
+      >Детализация по кварталам</small>
+    </div>
+    <div class="col-auto">
+      <small
+        class="view-link"
+        [ngClass]="{'active-view-link': activeView === 'month'}"
+        (click)="onChangeDetalisationView('month')"
+      >Детализация по месяцам</small>
+    </div>
+  </div>
+
+  <!--  Expense group-->
+  <div class="row border-bottom m-1 mb-3">
+    <div class="col-10 start pl-0">
+      <span class="sections-name">ГРУППА РАСХОДОВ</span>
+    </div>
+    <div class="col end pr-0">
+      <span class="sections-name">БЮДЖЕТ</span>
+    </div>
+  </div>
+  <!--  =====================================================YEAR=====================================================-->
+  <ng-container *ngIf="activeView === 'year'">
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+  </ng-container>
+  <!--  =====================================================QUARTER=====================================================-->
+  <ng-container *ngIf="activeView === 'quarter'">
+    <div class="detalisation-title__quarter center">
+      1 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      2 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      3 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      4 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+      <div class="col-12 end">
+        <span class="summary-all-groups__finally">{{finance.approvedBudget * 4 | number:'1.2'}}</span>
+      </div>
+    </div>
+  </ng-container>
+  <!--  =====================================================MONTH=====================================================-->
+  <ng-container *ngIf="activeView === 'month'">
+    <div class="detalisation-title__quarter center grey">
+      1 квартал
+    </div>
+    <div class="detalisation-title__month center ">
+      Январь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Февраль
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Март
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      2 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Апрель
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Май
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Июнь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      3 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Июль
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Август
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Сентябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      4 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Октябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Ноябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Декабрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of finance.projects"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>
+      </div>
+      <div class="col-12 end">
+        <span class="summary-all-groups__finally">{{finance.approvedBudget * 12 | number:'1.2'}}</span>
+      </div>
+    </div>
+  </ng-container>
+  <!--  Contend end-->
+</div>

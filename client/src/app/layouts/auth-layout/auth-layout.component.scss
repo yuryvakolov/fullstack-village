@@ -1,0 +1,51 @@
+.spacer {
+  flex: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0;
+  background-color: #1976d2;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.navbar__left-block {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.navbar__left-block__logotext {
+  color: #ffffff;
+  padding: 15px;
+}
+
+.navbar__right-block {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__right-block a {
+  display: inline-block;
+  color: #ffffff;
+  padding: 0 15px;
+  line-height: 60px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.active {
+  background-color: #1569bf;
+}
+
+.navbar__right-block a:hover {
+  background-color: #1569bf;
+}

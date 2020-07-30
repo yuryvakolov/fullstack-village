@@ -1,26 +1,36 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
+import {registerLocaleData} from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginPageComponent} from './login-page/login-page.component';
-import {AuthLayoutComponent} from './shared/layouts/auth-layout/auth-layout.component';
-import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
+import {SiteLayoutComponent} from './layouts/site-layout/site-layout.component';
 import {RegisterPageComponent} from './register-page/register-page.component';
-import {TokenInterceptor} from "./shared/interceptors/token.interceptor";
-import {OverviewPageComponent} from './overview-page/overview-page.component';
-import {AnalyticsPageComponent} from './analytics-page/analytics-page.component';
-import {HistoryPageComponent} from './history-page/history-page.component';
-import {OrderPageComponent} from './order-page/order-page.component';
-import {CategoriesPageComponent} from './categories-page/categories-page.component';
-import {LoaderComponent} from './shared/components/loader/loader.component';
-import {CategoriesFormComponent} from './categories-page/categories-form/categories-form.component';
-import {PositionsFormComponent} from './categories-page/categories-form/positions-form/positions-form.component';
-import {OrderCategoriesComponent} from './order-page/order-categories/order-categories.component';
-import {OrderPositionsComponent} from './order-page/order-positions/order-positions.component';
+import {TokenInterceptor} from "./_interceptors/token.interceptor";
+import {OverviewPageComponent} from './pages/overview-page/overview-page.component';
+import {LoaderComponent} from './components/simple-components/loader/loader.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {PageTitleComponent} from './components/simple-components/page-title/page-title.component';
+import {DataCellComponent} from './components/simple-components/data-cell/data-cell.component';
+import {RoutableIconComponent} from './components/simple-components/routable-icon/routable-icon.component';
+import {HeaderToolbarComponent} from './components/complex-components/header-toolbar/header-toolbar.component';
+import {RowFourCellsComponent} from './components/complex-components/row-four-cells/row-four-cells.component';
+import {RowTwoCellsComponent} from './components/complex-components/row-two-cells/row-two-cells.component';
+import {TopIconsBlockComponent} from './components/complex-components/top-icons-block/top-icons-block.component';
+import {ActualCostsPageComponent} from './pages/actual-costs-page/actual-costs-page.component';
+import {ActualIncomePageComponent} from './pages/actual-income-page/actual-income-page.component';
+import {ApprovedBudgetPageComponent} from './pages/approved-budget-page/approved-budget-page.component';
+import {BackwardArrearsPageComponent} from './pages/backward-arrears-page/backward-arrears-page.component';
+import {ExpectedArrivalsPageComponent} from './pages/expected-arrivals-page/expected-arrivals-page.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 
+
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -30,24 +40,33 @@ import {OrderPositionsComponent} from './order-page/order-positions/order-positi
     SiteLayoutComponent,
     RegisterPageComponent,
     OverviewPageComponent,
-    AnalyticsPageComponent,
-    HistoryPageComponent,
-    OrderPageComponent,
-    CategoriesPageComponent,
     LoaderComponent,
-    CategoriesFormComponent,
-    PositionsFormComponent,
-    OrderCategoriesComponent,
-    OrderPositionsComponent,
+    PageTitleComponent,
+    DataCellComponent,
+    RoutableIconComponent,
+    HeaderToolbarComponent,
+    RowFourCellsComponent,
+    RowTwoCellsComponent,
+    TopIconsBlockComponent,
+    ActualCostsPageComponent,
+    ActualIncomePageComponent,
+    ApprovedBudgetPageComponent,
+    BackwardArrearsPageComponent,
+    ExpectedArrivalsPageComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
+    {
+      provide: LOCALE_ID, useValue: 'ru'
+    },
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,

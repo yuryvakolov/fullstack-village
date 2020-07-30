@@ -1,18 +1,17 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginPageComponent} from "./login-page/login-page.component";
-import {AuthLayoutComponent} from "./shared/layouts/auth-layout/auth-layout.component";
-import {SiteLayoutComponent} from "./shared/layouts/site-layout/site-layout.component";
+import {AuthLayoutComponent} from "./layouts/auth-layout/auth-layout.component";
+import {SiteLayoutComponent} from "./layouts/site-layout/site-layout.component";
 import {RegisterPageComponent} from "./register-page/register-page.component";
-import {AuthGuard} from "./shared/guards/auth.guard";
-import {OverviewPageComponent} from "./overview-page/overview-page.component";
-import {AnalyticsPageComponent} from "./analytics-page/analytics-page.component";
-import {HistoryPageComponent} from "./history-page/history-page.component";
-import {OrderPageComponent} from "./order-page/order-page.component";
-import {CategoriesPageComponent} from "./categories-page/categories-page.component";
-import {CategoriesFormComponent} from "./categories-page/categories-form/categories-form.component";
-import {OrderCategoriesComponent} from "./order-page/order-categories/order-categories.component";
-import {OrderPositionsComponent} from "./order-page/order-positions/order-positions.component";
+import {AuthGuard} from "./_guards/auth.guard";
+import {OverviewPageComponent} from "./pages/overview-page/overview-page.component";
+import {ActualCostsPageComponent} from "./pages/actual-costs-page/actual-costs-page.component";
+import {ActualIncomePageComponent} from "./pages/actual-income-page/actual-income-page.component";
+import {ApprovedBudgetPageComponent} from "./pages/approved-budget-page/approved-budget-page.component";
+import {BackwardArrearsPageComponent} from "./pages/backward-arrears-page/backward-arrears-page.component";
+import {ExpectedArrivalsPageComponent} from "./pages/expected-arrivals-page/expected-arrivals-page.component";
+import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
@@ -26,17 +25,14 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
       {path: 'overview', component: OverviewPageComponent},
-      {path: 'analytics', component: AnalyticsPageComponent},
-      {path: 'history', component: HistoryPageComponent},
-      {path: 'order', component: OrderPageComponent, children: [
-          {path: '', component: OrderCategoriesComponent},
-          {path: ':id', component: OrderPositionsComponent},
-        ]},
-      {path: 'categories', component: CategoriesPageComponent},
-      {path: 'categories/new', component: CategoriesFormComponent},
-      {path: 'categories/:id', component: CategoriesFormComponent},
+      {path: 'actual-costs', component: ActualCostsPageComponent},
+      {path: 'actual-income', component: ActualIncomePageComponent},
+      {path: 'approved-budget', component: ApprovedBudgetPageComponent},
+      {path: 'backward-arrears', component: BackwardArrearsPageComponent},
+      {path: 'expected-arrivals', component: ExpectedArrivalsPageComponent},
     ]
-  }
+  },
+  {path: '404', component: PageNotFoundComponent},
 ];
 
 @NgModule({

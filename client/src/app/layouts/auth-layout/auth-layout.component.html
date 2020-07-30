@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="navbar__left-block">
+    <img
+      width="40"
+      alt="Village Logo"
+      src="/client/src/assets/icons/logo_village.svg"
+    />
+    <a routerLink="/" class="navbar__left-block__logotext">Village Analytic</a>
+  </div>
+  <div class="navbar__right-block">
+    <a routerLink="/login" routerLinkActive="active">Вход</a>
+    <a routerLink="/register" routerLinkActive="active">Регистрация</a>
+  </div>
+</nav>
+
+
+<div class="auth-block">
+  <router-outlet></router-outlet>
+</div>

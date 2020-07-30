@@ -1,0 +1,11 @@
+<div class="wrapper-end">
+  <small>{{labelBeforeDynamic}} {{firstDynamicLabeltext}} {{labelAfterDynamic}}</small>
+</div>
+<div
+  [class]="class"
+>{{data}}
+  <a [routerLink]="routerLink" *ngIf="showIcon">
+    <img src="/assets/icons/view.svg" class="view-icon">
+  </a>
+</div>
+
