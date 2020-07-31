@@ -7,7 +7,6 @@ const morgan = require('morgan')
 
 // Используемые роуты
 const authRoutes = require('./routes/auth')
-const expensesRoutes = require('routes/expenses')
 const analyticsRoutes = require('./routes/analytics')
 const categoryRoutes = require('./routes/category')
 const orderRoutes = require('./routes/order')
@@ -35,8 +34,6 @@ app.use('/api/analytics', analyticsRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/position', positionRoutes)
-
-app.use('/api/expenses', expensesRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/dist/client'))
