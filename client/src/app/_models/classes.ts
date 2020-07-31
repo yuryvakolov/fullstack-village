@@ -38,16 +38,16 @@ export class Project {
   }
 }
 
-export class Expense {
+export class ExpensesCategory {
   id?: number;
-  name?: string;
-  plan?: number;
-  fact?: number;
+  name: string;
+  year: number;
+  summary: number;
 
   constructor(value: any) {
-    this.id = value.id;
+    this.id = -1;
     this.name = value.name;
-    this.plan = value.plan;
-    this.fact = value.fact;
+    this.year = new Date().getFullYear();
+    this.summary = 0;
   }
 }

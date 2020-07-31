@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const expensesSchema = new Schema({
+const categorySchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    sum: {
+    imageSrc: {
         type: String,
-        required: true
+        required: false
     },
     user: {
         ref: 'users',
@@ -16,4 +16,4 @@ const expensesSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('expenses', expensesSchema)
+module.exports = mongoose.model("category", categorySchema)

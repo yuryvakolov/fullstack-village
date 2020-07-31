@@ -11,6 +11,7 @@ const analyticsRoutes = require('./routes/analytics')
 const categoryRoutes = require('./routes/category')
 const orderRoutes = require('./routes/order')
 const positionRoutes = require('./routes/position')
+const expensesRoutes = require('./routes/expenses')
 
 const app = express()
 const keys = require('./config/keys')
@@ -34,6 +35,7 @@ app.use('/api/analytics', analyticsRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/position', positionRoutes)
+app.use('/api/expenses', expensesRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/dist/client'))

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Finance} from "../../_models/classes";
-import {OverviewService} from "../../_services/overview.service";
+import {ExpensesCategory, Finance} from "../../_models/classes";
+import {ExpensesService} from "../../_services/expenses.service";
 
 @Component({
   selector: 'app-approved-budget-page',
@@ -10,21 +10,22 @@ import {OverviewService} from "../../_services/overview.service";
 export class ApprovedBudgetPageComponent implements OnInit {
   companyName = 'ТСН "Рига"';
   currentDate = Date.now();
-  finance = new Finance(0);
+  expensesCategory = new ExpensesCategory('')
+  categories
   activeView = 'year';
 
   constructor(
-    private overviewService: OverviewService,
+    private expensesService: ExpensesService,
   ) { }
 
   ngOnInit(): void {
-    this.loadFianceAnalytic();
+    this.loadExpensesCategory();
   }
 
-  loadFianceAnalytic() {
-    this.overviewService.loadFinancialAnalytics().subscribe(
-      finance => {
-        this.finance = finance;
+  loadExpensesCategory() {
+    this.expensesService.loadExpensesCategory().subscribe(
+      categories => {
+        this.categories = categories;
       }
     );
   }
