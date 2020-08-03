@@ -14,6 +14,10 @@ $button-success-hover: #21acd9;
   margin: auto;
 }
 
+.controls {
+  display: flex;
+}
+
 .auth-block {
   position: relative;
   padding: 20px 40px;
@@ -92,4 +96,44 @@ button {
 button:hover {
   background-color: $button-success-hover;
   border-color: $button-success-hover;
+}
+
+
+@media (max-width: 849px){
+
+  .auth-block {
+    height: 250px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 470px;
+  }
+}
+
+@media (max-width: 579px){
+
+  .auth-block {
+    height: 300px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    margin: 0px 0px 10px 0px;
+  }
+
+  button {
+    margin: 0px;
+    width: 230px;
+  }
 }

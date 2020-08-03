@@ -10,48 +10,49 @@
           <use class="close" xlink:href="#close" x="0" y="0"/>
         </svg>
       </div>
-
-      <div class="control">
-        <input
-          type="email"
-          [ngClass]="{'input-invalid': form.get('email').invalid && form.get('email').touched}"
-          formControlName="email"
-          placeholder="E-mail"
-        >
-        <span
-          class="helper-text yellow-text"
-          *ngIf="form.get('email').invalid && form.get('email').touched"
-        >
+      <div class="controls">
+        <div class="control">
+          <input
+            type="email"
+            [ngClass]="{'input-invalid': form.get('email').invalid && form.get('email').touched}"
+            formControlName="email"
+            placeholder="E-mail"
+          >
+          <span
+            class="helper-text yellow-text"
+            *ngIf="form.get('email').invalid && form.get('email').touched"
+          >
         <span *ngIf="form.get('email').errors['required']"> Email не должен быть пустым</span>
         <span *ngIf="form.get('email').errors['email']"> Введите корректный email адрес</span>
       </span>
-      </div>
+        </div>
 
-      <div class="control">
-        <input
-          type="password"
-          [ngClass]="{'input-invalid': form.get('email').invalid && form.get('email').touched}"
-          class="form-control"
-          formControlName="password"
-          placeholder="Пароль"
-        >
-        <span
-          class="helper-text yellow-text"
-          *ngIf="form.get('password').invalid && form.get('password').touched"
-        >
+        <div class="control">
+          <input
+            type="password"
+            [ngClass]="{'input-invalid': form.get('email').invalid && form.get('email').touched}"
+            class="form-control"
+            formControlName="password"
+            placeholder="Пароль"
+          >
+          <span
+            class="helper-text yellow-text"
+            *ngIf="form.get('password').invalid && form.get('password').touched"
+          >
         <span *ngIf="form.get('password').errors['required']"> Пароль не должен быть пустым</span>
         <span
           *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
           Минимальная длина: {{form.get('password').errors['minlength']['requiredLength']}} символов
         </span>
       </span>
-      </div>
+        </div>
 
-      <button
-        class="button button-one"
-        [disabled]="form.invalid || form.disabled"
-      >Вход
-      </button>
+        <button
+          class="button button-one"
+          [disabled]="form.invalid || form.disabled"
+        >Вход
+        </button>
+      </div>
     </form>
   </div>
 </div>
