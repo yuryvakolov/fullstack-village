@@ -25,11 +25,11 @@
   <!--  Detalinsation of view-->
   <div class="row mt-3 mb-5">
     <div class="col-auto">
-      <small
+      <span
         class="view-link"
         [ngClass]="{'active-view-link': activeView === 'year'}"
         (click)="onChangeDetalisationView('year')"
-      >Общий бюджет на год</small>
+      >Общий бюджет на год</span>
     </div>
     <div class="col-auto">
       <small
@@ -68,221 +68,221 @@
       </div>
     </div>
   </ng-container>
-<!--  &lt;!&ndash;  =====================================================QUARTER=====================================================&ndash;&gt;-->
-<!--  <ng-container *ngIf="activeView === 'quarter'">-->
-<!--    <div class="detalisation-title__quarter center">-->
-<!--      1 квартал-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of expensesCategory"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{20000 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center">-->
-<!--      2 квартал-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of expensesCategory"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{300000 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center">-->
-<!--      3 квартал-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of expensesCategory"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{340000 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center">-->
-<!--      4 квартал-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of expensesCategory"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{12101000 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups__finally">{{2323222 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-container>-->
+  <!--  =====================================================QUARTER=====================================================-->
+  <ng-container *ngIf="activeView === 'quarter'">
+    <div class="detalisation-title__quarter center">
+      1 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{20000 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      2 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{300000 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      3 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{340000 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center">
+      4 квартал
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{12101000 | number:'1.2'}}</span>
+      </div>
+      <div class="col-12 end">
+        <span class="summary-all-groups__finally">{{2323222 | number:'1.2'}}</span>
+      </div>
+    </div>
+  </ng-container>
   <!--  =====================================================MONTH=====================================================-->
-<!--  <ng-container *ngIf="activeView === 'month'">-->
-<!--    <div class="detalisation-title__quarter center grey">-->
-<!--      1 квартал-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center ">-->
-<!--      Январь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Февраль-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Март-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center grey">-->
-<!--      2 квартал-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Апрель-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Май-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Июнь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center grey">-->
-<!--      3 квартал-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Июль-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Август-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Сентябрь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__quarter center grey">-->
-<!--      4 квартал-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Октябрь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Ноябрь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="detalisation-title__month center">-->
-<!--      Декабрь-->
-<!--    </div>-->
-<!--    <app-row-two-cells-->
-<!--      *ngFor="let item of finance.projects"-->
-<!--      [group]="item"-->
-<!--    ></app-row-two-cells>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups">{{finance.approvedBudget | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--      <div class="col-12 end">-->
-<!--        <span class="summary-all-groups__finally">{{finance.approvedBudget * 12 | number:'1.2'}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-container>-->
+  <ng-container *ngIf="activeView === 'month'">
+    <div class="detalisation-title__quarter center grey">
+      1 квартал
+    </div>
+    <div class="detalisation-title__month center ">
+      Январь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{3232232 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Февраль
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{3553355 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Март
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{444222424 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      2 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Апрель
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{242424656 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Май
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{775757 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Июнь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{6475585 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      3 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Июль
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{65755884 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Август
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{3546473 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Сентябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{4536373 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__quarter center grey">
+      4 квартал
+    </div>
+    <div class="detalisation-title__month center">
+      Октябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{3546373 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Ноябрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{34526233 | number:'1.2'}}</span>
+      </div>
+    </div>
+    <div class="detalisation-title__month center">
+      Декабрь
+    </div>
+    <app-row-two-cells
+      *ngFor="let item of categories; let i = index;"
+      [group]="item"
+    ></app-row-two-cells>
+    <div class="row">
+      <div class="col-12 end">
+        <span class="summary-all-groups">{{45637333 | number:'1.2'}}</span>
+      </div>
+      <div class="col-12 end">
+        <span class="summary-all-groups__finally">{{34334 * 12 | number:'1.2'}}</span>
+      </div>
+    </div>
+  </ng-container>
   <!--  Contend end-->
 </div>

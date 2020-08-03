@@ -1,31 +1,55 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+$first-color: #000000;
 $danger: #d11f1f;
 $success: #16b54b;
 
-html, body, section {
+html, body, section, p, a, ul, li {
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 10px;
-}
-
-a {
-  margin: 0;
-  padding: 0;
+  font-size: 10px!important;
+  font-family: "OpenSans-Light", sans-serif!important;
+  font-weight: 300;
 }
 
 ul, li {
   list-style: none;
 }
 
+div, input, button {
+  box-sizing: border-box;
+}
+
+.control {
+  position: relative;
+  display: inline-block;
+}
+
+.helper-text {
+  font-size: 1.4rem;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+
+.control .input-invalid {
+  background-color: #ffffb0;
+  border-color: #ffffb0;
+}
+
+.yellow-text {
+  color: #ffffb0;
+}
+
 .wrapper-end {
   padding-right: 10px;
   display: flex;
   justify-content: flex-end;
+  outline: none;
 }
 
 .start {
@@ -77,3 +101,10 @@ ul, li {
   display: flex;
   align-items: center;
 }
+
+.card {
+  width: 400px;
+  height: 250px;
+  background-color: #1976d2;
+}
+

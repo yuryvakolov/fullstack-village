@@ -1,0 +1,95 @@
+$auth-block: #535c69;
+$header: #868d95;
+$button-success: #3bc8f5;
+$button-success-hover: #21acd9;
+
+.wrapper {
+  background-color: $auth-block;
+
+}
+
+.auth-container {
+  padding: 0 10px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.auth-block {
+  position: relative;
+  padding: 20px 40px;
+  height: 200px;
+}
+
+.auth-block__title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.auth-block__title {
+  font-size: 2.4rem;
+  color: #ffffff;
+  display: inline-block
+}
+
+.icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  fill: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+.icon:hover {
+  fill: $button-success;
+}
+
+.controls-wrapper {
+  display: flex;
+}
+
+.controls-wrapper {
+  display: flex;
+}
+
+input {
+  font-size: 1.4rem;
+  position: relative;
+  width: 230px;
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  margin-right: 10px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}
+
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+button {
+  position: relative;
+  width: 230px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid $button-success;
+  background: $button-success;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: $button-success-hover;
+  border-color: $button-success-hover;
+}
