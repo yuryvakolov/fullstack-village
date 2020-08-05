@@ -1,0 +1,8 @@
+$top-menu: #ffffff;
+
+.wrapper {
+  height: 60px;
+  width: calc(100vw - 250px);
+  background-color: $top-menu;
+  margin-bottom: 20px;
+}
