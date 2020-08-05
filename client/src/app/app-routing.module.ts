@@ -12,6 +12,9 @@ import {ApprovedBudgetPageComponent} from "./pages/approved-budget-page/approved
 import {BackwardArrearsPageComponent} from "./pages/backward-arrears-page/backward-arrears-page.component";
 import {ExpectedArrivalsPageComponent} from "./pages/expected-arrivals-page/expected-arrivals-page.component";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import {LiveTapePageComponent} from "./pages/live-tape-page/live-tape-page.component";
+import {DirectoryPageComponent} from "./pages/directory-page/directory-page.component";
+import {SettingsPageComponent} from "./pages/settings-page/settings-page.component";
 
 
 const routes: Routes = [
@@ -24,11 +27,14 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
       {path: 'overview', component: OverviewPageComponent},
+      {path: 'live-tape', component: LiveTapePageComponent},
       {path: 'actual-costs', component: ActualCostsPageComponent},
       {path: 'actual-income', component: ActualIncomePageComponent},
       {path: 'approved-budget', component: ApprovedBudgetPageComponent},
+      {path: 'directory', component: DirectoryPageComponent},
       {path: 'backward-arrears', component: BackwardArrearsPageComponent},
       {path: 'expected-arrivals', component: ExpectedArrivalsPageComponent},
+      {path: 'settings', component: SettingsPageComponent},
     ]
   },
   {path: '404', component: PageNotFoundComponent},

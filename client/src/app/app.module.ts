@@ -28,7 +28,11 @@ import {ApprovedBudgetPageComponent} from './pages/approved-budget-page/approved
 import {BackwardArrearsPageComponent} from './pages/backward-arrears-page/backward-arrears-page.component';
 import {ExpectedArrivalsPageComponent} from './pages/expected-arrivals-page/expected-arrivals-page.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
-
+import { SidebarComponent } from './components/complex-components/sidebar/sidebar.component';
+import { TopMenuComponent } from './components/complex-components/top-menu/top-menu.component';
+import { LiveTapePageComponent } from './pages/live-tape-page/live-tape-page.component';
+import { DirectoryPageComponent } from './pages/directory-page/directory-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -54,6 +58,11 @@ registerLocaleData(localeRu, 'ru');
     BackwardArrearsPageComponent,
     ExpectedArrivalsPageComponent,
     PageNotFoundComponent,
+    SidebarComponent,
+    TopMenuComponent,
+    LiveTapePageComponent,
+    DirectoryPageComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,

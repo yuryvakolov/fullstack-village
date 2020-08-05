@@ -1,0 +1,7 @@
+<aside>
+  <ul>
+    <li *ngFor="let item of sidebarMenu" class="sidebar__item">
+      <a [routerLink]="item.link">{{item.name}}</a>
+    </li>
+  </ul>
+</aside>
